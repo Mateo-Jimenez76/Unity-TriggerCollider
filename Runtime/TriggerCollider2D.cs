@@ -24,3 +24,4 @@ public class TriggerCollider2D : MonoBehaviour
         ontriggerExit.Invoke();
     }
 }
+

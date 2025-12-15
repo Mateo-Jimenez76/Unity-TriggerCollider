@@ -1,5 +1,5 @@
 {
-    "name": "ExamplePackage.Editor",
+    "name": "SimpleTriggerColliders.Editor",
     "rootNamespace": "",
     "references": [],
     "includePlatforms": ["Editor"],
