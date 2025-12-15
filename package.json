@@ -1,26 +1,23 @@
 {
-  "name": "com.company-name.package-name",
-  "version": "1.2.3",
-  "displayName": "Package Example",
-  "description": "This is an example package",
-  "unity": "2019.1",
+  "name": "com.mateojimenez.triggercollider",
+  "version": "1.0.0",
+  "displayName": "Simple Trigger Colliders",
+  "description": "",
+  "unity": "6000.2",
   "unityRelease": "",
-  "documentationUrl": "https://example.com/",
-  "changelogUrl": "https://example.com/changelog.html",
-  "licensesUrl": "https://example.com/licensing.html",
+  "documentationUrl": "https://github.com/Mateo-Jimenez76/Unity-TriggerCollider",
+  "changelogUrl": "CHANGELOG.md",
   "dependencies": {
-    "com.[company-name].some-package": "1.0.0",
-    "com.[company-name].other-package": "2.0.0"
+
  },
  "keywords": [
-    "keyword1",
-    "keyword2",
-    "keyword3"
+    "Colliders",
+    "Trigger",
+    "Simple"
   ],
   "author": {
-    "name": "someone",
-    "email": "someone@example.com",
-    "url": "https://www.someone.com"
+    "name": "Mateo Jimenez Jones",
+    "url": "https://github.com/Mateo-Jimenez76"
   }
 }
 
