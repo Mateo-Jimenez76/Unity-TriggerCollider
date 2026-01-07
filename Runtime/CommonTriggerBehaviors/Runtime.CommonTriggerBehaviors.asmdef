@@ -10,7 +10,9 @@
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": [],
+    "defineConstraints": [
+        "HAS_HEALTH_SYSTEM"
+    ],
     "versionDefines": [
         {
             "name": "com.maxgreenhill.healthsystem",
