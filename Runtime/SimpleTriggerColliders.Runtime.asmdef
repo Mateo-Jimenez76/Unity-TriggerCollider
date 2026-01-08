@@ -11,8 +11,8 @@
     "defineConstraints": [],
     "versionDefines": [
         {
-            "name": "com.maxgreenhill.healthsystem",
-            "expression": "1.1.7",
+            "name": "com.mateojimenez.healthsystem",
+            "expression": "3.0.0",
             "define": "HAS_HEALTH_SYSTEM"
         }
     ],
