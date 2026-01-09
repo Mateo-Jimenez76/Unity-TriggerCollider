@@ -6,24 +6,24 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Collider2D))]
 public class TriggerCollider2D : MonoBehaviour
 {
-    [SerializeField] private UnityEvent<Collider2D> onTriggerEnter;
-    [SerializeField] private UnityEvent<Collider2D> onTriggerStay;
-    [SerializeField] private UnityEvent<Collider2D> onTriggerExit;
+    [SerializeField] private UnityEvent<Collider2D,GameObject> onTriggerEnter;
+    [SerializeField] private UnityEvent<Collider2D,GameObject> onTriggerStay;
+    [SerializeField] private UnityEvent<Collider2D,GameObject> onTriggerExit;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        onTriggerEnter.Invoke(collision);
+        onTriggerEnter.Invoke(collision, gameObject);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
 
-        onTriggerStay.Invoke(collision);
+        onTriggerStay.Invoke(collision, gameObject);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        onTriggerExit.Invoke(collision);
+        onTriggerExit.Invoke(collision, gameObject);
     }
 }
 #endif
@@ -32,9 +32,9 @@ public class TriggerCollider2D : MonoBehaviour
 [RequireComponent(typeof(Collider2D))]
 public class TriggerCollider2D : MonoBehaviour
 {
-    [SerializeField] private UnityEvent<Collider2D> onTriggerEnterCollider2D;
-    [SerializeField] private UnityEvent<Collider2D> onTriggerStayCollider2D;
-    [SerializeField] private UnityEvent<Collider2D> onTriggerExitCollider2D;
+    [SerializeField] private UnityEvent<Collider2D,GameObject> onTriggerEnterCollider2D;
+    [SerializeField] private UnityEvent<Collider2D,GameObject> onTriggerStayCollider2D;
+    [SerializeField] private UnityEvent<Collider2D,GameObject> onTriggerExitCollider2D;
 
     [SerializeField] private UnityEvent<Collider2D,int> onTriggerEnterCollider2DInt;
     [SerializeField] private UnityEvent<Collider2D,int> onTriggerStayCollider2DInt;
@@ -52,13 +52,13 @@ public class TriggerCollider2D : MonoBehaviour
         switch (onEnterType)
         {
             case (EventType.Collider2D):
-                onTriggerEnterCollider2D.Invoke(collision);
+                onTriggerEnterCollider2D.Invoke(collision, gameObject);
                 break;
             case (EventType.Collider2DAndInt):
-                onTriggerEnterCollider2DInt.Invoke(collision,damageAmount);
+                onTriggerEnterCollider2DInt.Invoke(collision, damageAmount);
                 break;
             case (EventType.Both):
-                onTriggerEnterCollider2D.Invoke(collision);
+                onTriggerEnterCollider2D.Invoke(collision, gameObject);
                 onTriggerEnterCollider2DInt.Invoke(collision, damageAmount);
                 break;
         }
@@ -70,13 +70,13 @@ public class TriggerCollider2D : MonoBehaviour
         switch (onStayType)
         {
             case (EventType.Collider2D):
-                onTriggerStayCollider2D.Invoke(collision);
+                onTriggerStayCollider2D.Invoke(collision, gameObject);
                 break;
             case (EventType.Collider2DAndInt):
                 onTriggerStayCollider2DInt.Invoke(collision, damageAmount);
                 break;
             case (EventType.Both):
-                onTriggerStayCollider2D.Invoke(collision);
+                onTriggerStayCollider2D.Invoke(collision, gameObject);
                 onTriggerStayCollider2DInt.Invoke(collision, damageAmount);
                 break;
         }
@@ -87,13 +87,13 @@ public class TriggerCollider2D : MonoBehaviour
         switch (onExitType)
         {
             case (EventType.Collider2D):
-                onTriggerExitCollider2D.Invoke(collision);
+                onTriggerExitCollider2D.Invoke(collision, gameObject);
                 break;
             case (EventType.Collider2DAndInt):
                 onTriggerExitCollider2DInt.Invoke(collision, damageAmount);
                 break;
             case (EventType.Both):
-                onTriggerExitCollider2D.Invoke(collision);
+                onTriggerExitCollider2D.Invoke(collision, gameObject);
                 onTriggerExitCollider2DInt.Invoke(collision, damageAmount);
                 break;
         }

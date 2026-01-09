@@ -1,12 +1,62 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class CommonTriggerBehaviors : ScriptableObject
 {
-    public static void DestroyOther(Collider2D other)
+    /// <summary>
+    /// Destroys the object corresponding to the collider passed in. The intended purpose is to be used as a
+    /// dynamic function, meaning that the parameters get their data from UnityEvent<Collider,GameObject> automatically.
+    /// </summary>
+    /// <param name="collision">The Collider2D of the object to destroy</param>
+    /// <param name="caller">The object that is calling this function</param>
+    public static void DestroyObjectCollidedWith(Collider2D collision, GameObject caller)
     {
-        Debug.Log("Destroying " + other.name);
-        Destroy(other.gameObject);
+        Debug.Log("Destroying " + collision.name);
+        Destroy(collision.gameObject);
     }
 
+    /// <summary>
+    /// Destroys the object corresponding to the collider passed in. The intended purpose is to be used as a
+    /// dynamic function, meaning that the parameters get their data from UnityEvent<Collider,GameObject> automatically.
+    /// </summary>
+    /// <param name="collision">The Collider of the object to destroy</param>
+    /// <param name="caller">The object that is calling this function</param>
+    public static void DestroyObjectCollidedWith(Collider collision, GameObject caller)
+    {
+        Debug.Log("Destroying " + collision.name);
+        Destroy(collision.gameObject);
+    }
+
+    /// <summary>
+    /// Loads a scene asynchronously by name.
+    /// </summary>
+    /// <param name="sceneName">The name of the scene as listed in Build Settings</param>
+    public void LoadSceneAsync(string sceneName)
+    {
+        Debug.Log("Loading scene " + sceneName + " asynchronously.");
+        SceneManager.LoadSceneAsync(sceneName);
+    }
+
+    /// <summary>
+    /// Logs collision information to the console. The intended purpose is to be used as a
+    /// dynamic function, meaning that the parameters get their data from UnityEvent<Collider,GameObject> automatically.
+    /// </summary>
+    /// <param name="collision">The Collider of the object that entered the caller's collider</param>
+    /// <param name="caller">The object that is calling this function</param>
+    public static void LogCollision(Collider collision, GameObject caller)
+    {
+        Debug.Log($"{collision.name} collided with {caller.name}(caller) at {collision.transform.position}");
+    }
+
+    /// <summary>
+    /// Logs collision information to the console. The intended purpose is to be used as a
+    /// dynamic function, meaning that the parameters get their data from UnityEvent<Collider,GameObject> automatically.
+    /// </summary>
+    /// <param name="collision2D">The Collider2D of the object that entered the caller's collider</param>
+    /// <param name="caller">The object that is calling this function</param>
+    public static void LogCollision(Collider2D collision, GameObject caller)
+    {
+        Debug.Log($"{collision.name} collided with {caller.name}(caller) at {collision.transform.position}");
+    }
 
     //Health Package Functions
 #if HAS_HEALTH_SYSTEM
@@ -21,17 +71,6 @@ public class CommonTriggerBehaviors : ScriptableObject
         {
             Debug.LogWarning($"No <color=lime>Health</color> component found on {other.name}. Skipping damage dealing...");
         }
-    }
-    /// <summary>
-    /// Destroys the specified 2D collider's associated GameObject.
-    /// </summary>
-    /// <remarks>This method destroys the GameObject attached to the specified collider</remarks>
-    /// <param name="other">The Collider2D whose associated GameObject will be destroyed. Cannot be null.</param>
-    /// <param name="unused">An int value used to absorb the input value from UnityEvent<Collider2D,int></param>
-    public static void DestroyOther(Collider2D other, int unused)
-    {
-        Debug.Log("Destroying " + other.name);
-        Destroy(other.gameObject);
     }
 #endif
 }
