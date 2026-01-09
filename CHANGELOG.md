@@ -1,3 +1,12 @@
+# [1.3.0](https://github.com/Mateo-Jimenez76/Unity-Simple-Trigger-Collider/compare/v1.2.0...v1.3.0) (2026-01-09)
+
+
+### Features
+
+* **TriggerColliders:** Add tooltips ([083fa88](https://github.com/Mateo-Jimenez76/Unity-Simple-Trigger-Collider/commit/083fa88e7dd4737be5904e2138560eb8dfa5a6b7))
+
+
+
 # [1.2.0](https://github.com/Mateo-Jimenez76/Unity-Simple-Trigger-Collider/compare/v1.1.0...v1.2.0) (2026-01-09)
 
 
