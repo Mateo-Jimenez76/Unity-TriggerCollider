@@ -26,7 +26,7 @@ When the Simple Health System Package is present, additional use case functions 
 
 The inspector will also change slighty in the TriggerCollider(2D) scripts to accommodate this change. 
 A new sections labeled "Simple Health System" will appear with an int value below it titled "Damage Amount".
-And before all unityEvents there will be an option 
+And before all UnityEvents there will be an enum labeled "Event Type" which controls the information that is passed in to the functions passed.
 If you do not wish to you use the triggers for the purpose of damage dealing you can ignore this change.
 
 IMAGE OF CHANGED INSPECTOR
@@ -60,7 +60,7 @@ Each [UnityEvent<Collider(2D)>](https://docs.unity3d.com/6000.3/Documentation/Sc
 
 There are two ways to pass in data to functions called by the UnityEvent<Collider(2D)> 
 1. Writing the data explicitly in the inspector
-2. Having the data be passed in through the OnTrigger calls.
+2. Having the data be passed in automatially to the OnTrigger calls.
 
 The first option is fairly simple, assign the object, pick the function you wish to call and input the values.
 
@@ -74,4 +74,5 @@ and that one parameter must be a Collider(2D).
 
 In order to use the functions, place the CommonUseCaseFunctions scriptable object found at /SimpleTriggerCollider/Runtime/CommonUseCase in the object field of the Unity Event you wish to use the function in. Then select the corresponding function you wish to use. \
 The reason for the use of a scriptable object is to circumvent the limitation that UnityEvents can only call functions from object references and not scripts. You cannot create this scriptable object nor does it have any parameters in the inspector to change.
+
 
