@@ -7,6 +7,12 @@ public class CustomSettingsProvider : SettingsProvider
 
     public const string mySettingsPath = "Assets/Resources/SimpleTriggerColliderSettings.asset";
 
+    SerializedProperty debugLogsProp;
+    SerializedProperty warningLogsProp;
+    SerializedProperty errorLogsProp;
+    SerializedProperty defaultColliderTypeProp;
+    SerializedProperty defaultCollider2DTypeProp;
+
     //Constructor
     //SettingsScope determines where the settings are stored (User(Preferences) or Project(Project Settings))
     //Project scope is only effects the current project, while User scope is global to the user
@@ -21,17 +27,23 @@ public class CustomSettingsProvider : SettingsProvider
     public override void OnActivate(string searchContext, VisualElement rootElement)
     {
         SerializedSettings = CustomSettings.GetSerializedSettings();
+
+        debugLogsProp = SerializedSettings.FindProperty("debugLogs");
+        warningLogsProp = SerializedSettings.FindProperty("warningLogs");
+        errorLogsProp = SerializedSettings.FindProperty("errorLogs");
+        defaultColliderTypeProp = SerializedSettings.FindProperty("defaultColliderType");
+        defaultCollider2DTypeProp = SerializedSettings.FindProperty("defaultCollider2DType");
     }
 
     //Renders the settings GUI
     public override void OnGUI(string searchContext)
     {
         SerializedSettings.Update();
-        EditorGUILayout.PropertyField(SerializedSettings.FindProperty("debugLogs"));
-        EditorGUILayout.PropertyField(SerializedSettings.FindProperty("warningLogs"));
-        EditorGUILayout.PropertyField(SerializedSettings.FindProperty("errorLogs"));
-        EditorGUILayout.PropertyField(SerializedSettings.FindProperty("defaultColliderType"));
-        EditorGUILayout.PropertyField(SerializedSettings.FindProperty("defaultCollider2DType"));
+        EditorGUILayout.PropertyField(debugLogsProp);
+        EditorGUILayout.PropertyField(warningLogsProp);
+        EditorGUILayout.PropertyField(errorLogsProp);
+        EditorGUILayout.PropertyField(defaultColliderTypeProp);
+        EditorGUILayout.PropertyField(defaultCollider2DTypeProp);
         SerializedSettings.ApplyModifiedPropertiesWithoutUndo();
     }
 
