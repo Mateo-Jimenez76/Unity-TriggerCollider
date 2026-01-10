@@ -1,3 +1,13 @@
+# [1.4.0](https://github.com/Mateo-Jimenez76/Unity-Simple-Trigger-Collider/compare/v1.3.0...v1.4.0) (2026-01-10)
+
+
+### Features
+
+* **CustomSettings:** Implement logging control options ([1334c17](https://github.com/Mateo-Jimenez76/Unity-Simple-Trigger-Collider/commit/1334c17ea165a957f4e39cc61342f99812679d88))
+* **TriggerColliders:** Scripts now create missing colliders ([0ffe772](https://github.com/Mateo-Jimenez76/Unity-Simple-Trigger-Collider/commit/0ffe7722463cf4c9fa12d9b4e9ffb6fffc626b0b))
+
+
+
 # [1.3.0](https://github.com/Mateo-Jimenez76/Unity-Simple-Trigger-Collider/compare/v1.2.0...v1.3.0) (2026-01-09)
 
 
