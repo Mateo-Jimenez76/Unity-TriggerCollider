@@ -28,6 +28,8 @@ public class CustomSettingsProvider : SettingsProvider
     {
         SerializedSettings.Update();
         EditorGUILayout.PropertyField(SerializedSettings.FindProperty("debugLogs"));
+        EditorGUILayout.PropertyField(SerializedSettings.FindProperty("warningLogs"));
+        EditorGUILayout.PropertyField(SerializedSettings.FindProperty("errorLogs"));
         EditorGUILayout.PropertyField(SerializedSettings.FindProperty("defaultColliderType"));
         EditorGUILayout.PropertyField(SerializedSettings.FindProperty("defaultCollider2DType"));
         SerializedSettings.ApplyModifiedPropertiesWithoutUndo();

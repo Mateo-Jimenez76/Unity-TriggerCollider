@@ -8,11 +8,15 @@ public class CustomSettings : ScriptableObject
     public const string settingsPath = "Assets/Resources/SimpleTriggerColliderSettings.asset";
 
     // --- Settings for your package ---
-    [SerializeField] private bool debugLogs;
+    [field: SerializeField] public bool debugLogs { get; set; }
 
-    [SerializeField] private ColliderType defaultColliderType;
+    [field: SerializeField] public bool warningLogs { get; set; }
 
-    [SerializeField] private Collider2DType defaultCollider2DType;
+    [field: SerializeField] public bool errorLogs { get; set; }
+
+    [field: SerializeField] public ColliderType defaultColliderType { get; private set; }
+
+    [field: SerializeField] public Collider2DType defaultCollider2DType { get; private set; }
 
     /// <summary>
     /// Retrieves the existing custom settings asset if it exists; otherwise, creates a new settings asset with default
@@ -30,6 +34,7 @@ public class CustomSettings : ScriptableObject
         //If not...
         if (resources == null)
         {
+            Logger.Log("Creating Resources folder for Simple Trigger Collider settings...");
             //...Create the Resources folder
             AssetDatabase.CreateFolder("Assets", "Resources");
         }
@@ -51,6 +56,7 @@ public class CustomSettings : ScriptableObject
             //Save the settings object as an asset
             AssetDatabase.CreateAsset(settings, settingsPath);
             AssetDatabase.SaveAssets();
+            Logger.Log("Created Simple Trigger Collider settings at: " + settingsPath);
         }
 
         return settings;
@@ -61,7 +67,7 @@ public class CustomSettings : ScriptableObject
         return new SerializedObject(GetOrCreateSettings());
     }
 
-    private enum ColliderType
+    public enum ColliderType
     {
         Box,
         Sphere,
@@ -69,7 +75,7 @@ public class CustomSettings : ScriptableObject
         Mesh
     }
 
-    private enum Collider2DType
+    public enum Collider2DType
     {
         Box,
         Circle,

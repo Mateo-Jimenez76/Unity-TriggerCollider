@@ -2,7 +2,8 @@
     "name": "CommonUseCaseFunctions.HealthPackageAddOn",
     "rootNamespace": "",
     "references": [
-        "GUID:c6dc6ae42f422474d90695d8ecfb08b2"
+        "GUID:c6dc6ae42f422474d90695d8ecfb08b2",
+        "GUID:5de7a88187d86924cb705092ac7cba17"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
