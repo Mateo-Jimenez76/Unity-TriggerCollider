@@ -8,15 +8,20 @@ public class CustomSettings : ScriptableObject
     public const string settingsPath = "Assets/Resources/SimpleTriggerColliderSettings.asset";
 
     // --- Settings for your package ---
-    [field: SerializeField] public bool debugLogs { get; set; }
+    [SerializeField] private bool debugLogs;
+    public bool DebugLogsEnabled() => debugLogs;
 
-    [field: SerializeField] public bool warningLogs { get; set; }
+    [SerializeField] private bool warningLogs;
+    public bool WarningLogsEnabled() => warningLogs;
 
-    [field: SerializeField] public bool errorLogs { get; set; }
+    [SerializeField] private bool errorLogs;
+    public bool ErrorLogsEnabled() => errorLogs;
 
-    [field: SerializeField] public ColliderType defaultColliderType { get; private set; }
+    [SerializeField] private ColliderType defaultColliderType;
+    public ColliderType GetDefaultColliderType() => defaultColliderType;
 
-    [field: SerializeField] public Collider2DType defaultCollider2DType { get; private set; }
+    [SerializeField] private Collider2DType defaultCollider2DType;
+    public Collider2DType GetDefaultCollider2DType() => defaultCollider2DType;
 
     /// <summary>
     /// Retrieves the existing custom settings asset if it exists; otherwise, creates a new settings asset with default
@@ -57,7 +62,7 @@ public class CustomSettings : ScriptableObject
             //Save the settings object as an asset
             AssetDatabase.CreateAsset(settings, settingsPath);
             AssetDatabase.SaveAssets();
-            Logger.LogWarning("Created Simple Trigger Collider settings at: " + settingsPath);
+            Logger.LogWarning("Created Simple Trigger Collider settings object at: " + settingsPath);
         }
 
         return settings;

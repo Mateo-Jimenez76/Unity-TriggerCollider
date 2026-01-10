@@ -25,7 +25,7 @@ public class TriggerCollider : MonoBehaviour
         var settings = Resources.Load<CustomSettings>("SimpleTriggerColliderSettings.asset");
 
         //Check for what kind of Collider2D to create
-        switch (settings.defaultColliderType)
+        switch (settings.GetDefaultColliderType())
         {
             case (ColliderType.Box):
                 Logger.Log("Added a BoxCollider component because TriggerCollider.cs depends on a Collider component being present. You can change this behavior in the package's settings.");
@@ -96,7 +96,7 @@ public class TriggerCollider : MonoBehaviour
         var settings = Resources.Load<CustomSettings>("SimpleTriggerColliderSettings.asset");
 
         //Check for what kind of Collider2D to create
-        switch (settings.defaultColliderType)
+        switch (settings.GetDefaultColliderType())
         {
             case (ColliderType.Box):
                 Logger.Log("Added a BoxCollider component because TriggerCollider.cs depends on a Collider component being present. You can change this behavior in the package's settings.");
